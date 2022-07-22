@@ -58,8 +58,6 @@ class pedidoModel():
             with connection.cursor() as cursor:
                 cursor.execute(
                     "SELECT id, cant, payment_method, city, municipality, cedula, total, status, delivery_amount, datetime, remarks FROM pedido" + (cadena)
-                    #WHERE cedula = %s AND datetime = %s AND status = %s or cedula = %s or  datetime = %s or status = %s or ", (cedula,)
-                    #"SELECT pedido id, cant, payment_method, city, municipality, cedula, total, status, delivery_amount, datetime, payment_screenshot, remarks FROM pedido"
                 )
               
                 resultset = cursor.fetchall()
