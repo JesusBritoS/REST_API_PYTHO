@@ -18,27 +18,14 @@ def get_pedidos(cedula=None, status=None, fecha=None):
         cedula = request.args.get('cedula')
         status = request.args.get('status')
         fecha = request.args.get('datetime')
-        print(fecha)
-        #timeFormat = datetime.datetime.strptime(fecha,'%d/%m/%Y')
-        #print(timeFormat, " A")
+
         pedidos = pedidoModel.get_pedidos(cedula, status, str(fecha))
 
         return jsonify(pedidos)
     except Exception as ex:
         return jsonify({'Message ': str(ex)}), 500
 
-# Listar pedidos pero con datos especificos
-# @main.route('/', methods=['GET'])
-# def get_pedido(cedula):
-#     try:
-#         cedula = request.args.get('cedula')
-#         print('YEEEEEEEEEEEEEEEE')
-#         pedido = pedidoModel.get_pedido(cedula)
 
-#         return jsonify(pedido)
-#     except Exception as ex:
-#         return jsonify({'Message ': str(ex)}), 500
-        
 # Crear pedido
 @main.route('/', methods=['POST'])
 def add_pedido():
